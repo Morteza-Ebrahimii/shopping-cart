@@ -1,0 +1,15 @@
+
+body{
+    background-color: #111;
+    color: #fafafa;
+}
+.hr {  
+    width: 100%; /* Full width of the container */  
+    height: .5px; /* Thickness of the line */  
+    background-color: rgb(255, 255, 255); /* Line color */  
+    margin: 2px 0 10px 0; /* Space above and below the line */  
+  }
+
+.card-bg{
+    background-color: #1a1c1e;
+}
