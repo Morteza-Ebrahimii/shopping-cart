@@ -118,3 +118,28 @@ image: 'image/product.jpg'
         background-color: #1a1c1e;
     }
    )
+
+10. import ProductItem.jsx to shop.jsx,
+    .import productList form items.js in shop.jsx,
+    .expect your Col tag write map method to productList(check this what is exactly),
+    .inside map following these code:(
+        <Col align='center'>
+        <ProductItem></ProductItem>
+        </Col>
+    ),
+    .get item from map to a props in productList name product,
+    .set key to each Col (use props and id),
+    .check your App,
+    .in Navbar extract Modal from 'react-bootstrap',
+    .use useState for showModal 'false',
+    .make function handleShow and handleClose to handle showModal,
+    .set handleShow to button,
+    .return Modal after NavbarBs with show to showModal and onHide to handleClose,
+    .set contentClassName to card-bg and dir to rtl,(search about these),
+    .inside Modal following these code:(
+        <Modal.Header>
+        <Modal.Title>Shopping Cart</Modal.Title>
+        <Modal.Body>Product</Modal.Body>
+        </Modal.Header>
+    ),
+
