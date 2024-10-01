@@ -1,24 +1,27 @@
 import { Card, Button } from 'react-bootstrap'
+import { productList } from '../data/items';
 
-function ProductItem({ ProductItem }) {
+function ProductItem({ Product }) {
+
+    console.log();
     return (
         <Card className='mt-5 card-bg'>
             <Card.Body>
-                <Card.Img variant='top' src={ProductItem.image}
+                <Card.Img variant='top' src={Product.image}
                     height='200px'
                     style={{ objectFit: 'cover' }}
                 />
                 <Card.Title align='right'
-                    className='text-right pt-4'>
-                    {ProductItem.title}
+                    className='text-right text-light pt-4'>
+                    {Product.title}
                 </Card.Title>
                 <Card.Text align='right' className='text-light'>
-                    {ProductItem.price}
+                    {Product.price}
                 </Card.Text>
             </Card.Body>
-            <Button variant='btn                       btn-outline-secondary'
-            className='white'>
-            Shopping Cart
+            <Button variant='btn btn-outline-secondary'
+            className='white m-3'>
+            Add to Shopping Cart
             </Button>
         </Card>
     )
