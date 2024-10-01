@@ -76,39 +76,40 @@ image: 'image/product.jpg'
 .export productList and productData ,
 
 ✅9. add a temperory picture to your images folder.
-   .change the address of your image in data,
-   .make productItem.jsx inside component folder,
-   .inside productItem import Card and Button form 'raect-bootstrap',
-   .following thise code in return ProductItem function{
-   <Card className='mt-5 card-bg'>
+.change the address of your image in data,
+.make productItem.jsx inside component folder,
+.inside productItem import Card and Button form 'raect-bootstrap',
+.following thise code in return ProductItem function{
+<Card className='mt-5 card-bg'>
 
-   <Card.body>
+<Card.body>
 
-   <Card.img
-   variant='top'
-   src={prop.image}
-   height='200px'
-   styel={{objectFit: 'cover' }}/>
+<Card.img
+variant='top'
+src={prop.image}
+height='200px'
+styel={{objectFit: 'cover' }}/>
 
-   <Card.Title
-   align='right'
-   className='text-right pt-4'
-   > {prop.title}
-   > </Card.Title>
+<Card.Title
+align='right'
+className='text-right pt-4'
 
-   <Card.Text
-   align='right'
-   className='text-light' >
-   {prop.price}
-   </Card.Text>
+> {prop.title}
+> </Card.Title>
 
-   </Card.body>
+<Card.Text
+align='right'
+className='text-light' >
+{prop.price}
+</Card.Text>
 
-   <Button
-   variant='btn btn-outline-secondary' className='white'
+</Card.body>
 
-   > Shopping Cart
-   > </Button>
+<Button
+variant='btn btn-outline-secondary' className='white'
+
+> Shopping Cart
+> </Button>
 
    </Card>
    },
@@ -119,27 +120,61 @@ image: 'image/product.jpg'
     }
    )
 
-10. import ProductItem.jsx to shop.jsx,
-    .import productList form items.js in shop.jsx,
-    .expect your Col tag write map method to productList(check this what is exactly),
-    .inside map following these code:(
-        <Col align='center'>
-        <ProductItem></ProductItem>
-        </Col>
-    ),
-    .get item from map to a props in productList name product,
-    .set key to each Col (use props and id),
-    .check your App,
-    .in Navbar extract Modal from 'react-bootstrap',
-    .use useState for showModal 'false',
-    .make function handleShow and handleClose to handle showModal,
-    .set handleShow to button,
-    .return Modal after NavbarBs with show to showModal and onHide to handleClose,
-    .set contentClassName to card-bg and dir to rtl,(search about these),
-    .inside Modal following these code:(
-        <Modal.Header>
-        <Modal.Title>Shopping Cart</Modal.Title>
-        <Modal.Body>Product</Modal.Body>
-        </Modal.Header>
-    ),
+✅10. import ProductItem.jsx to shop.jsx,
+.import productList form items.js in shop.jsx,
+.expect your Col tag write map method to productList(check this what is exactly),
+.inside map following these code:(
+<Col align='center'>
+<ProductItem></ProductItem>
+</Col>
+),
+.get item from map to a props in productList name product,
+.set key to each Col (use props and id),
+.check your App,
+.in Navbar extract Modal from 'react-bootstrap',
+.use useState for showModal 'false',
+.make function handleShow and handleClose to handle showModal,
+.set handleShow to button,
+.return Modal after NavbarBs with show to showModal and onHide to handleClose,
+.set contentClassName to card-bg and dir to rtl,(search about these),
+.inside Modal following these code:(
+<Modal.Header>
+<Modal.Title>Shopping Cart</Modal.Title>
+<Modal.Body>Product</Modal.Body>
+</Modal.Header>
+),
 
+✅11. make context folder in src,
+    .make CardContext.jsx in context folder,
+    .import createContext from 'react',
+    inside createContext make object and following these code(
+        items: [],
+        getProductQuantity: () => {},
+        addItemToCard: () => {},
+        removeItemFromCard: () => {},
+        deleteFromCard: () => {},
+        getTotalAmount: () => {},
+    ),
+    .defiene your context inside constant CardContext and export it,
+    .make function CardProvider following these code(
+    fucntion CardProvider({children}) {
+        const ContextValue = {
+            items: [],
+            getProductQuantity,
+            addItemToCard,
+            removeItemFromCard,
+            deleteFromCard,
+            getTotalAmount,
+        }
+    }
+    )
+    .return <CardContext.Provider with value ContextValue>
+                amount {children}
+            </CardContext.Provider>,
+    .export function CardProvider(export func before it),
+
+✅12. inside CardProvider make useState,
+    .make cardProduct from useState with inicial value [],
+    .set value of items inside ContextValue to cardProduct, 
+
+13.
