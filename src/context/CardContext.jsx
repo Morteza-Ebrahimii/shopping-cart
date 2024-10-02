@@ -12,10 +12,32 @@ export const CardContext = createContext({
 
 export function CardProvider({ children }) {
 
-    const [cardProduct, setCardProduct] = useState([])
+    const [CartProduct, setCartProduct] = useState([])
+
+    function getProductQuantity(id) {
+        const quantity = CartProduct.find((item) => (item.id === id)?.quantity)
+
+        if (quantity === undefined) {
+            return 0
+        }
+
+        return quantity
+    }
+
+    function addItemToCard(id) {
+        const quantity = getProductQuantity(id)
+
+        if (quantity === 0) {
+            setCartProduct([...CartProduct, { id: id, quantity: 1 }])
+        } else {
+            CartProduct.map((item) => (
+                item.id === id ? { ...item, quantity: quantity + 1 } : item
+            ))
+        }
+    }
 
     const ContextValue = {
-        items: cardProduct,
+        items: CartProduct,
         getProductQuantity,
         addItemToCard,
         removeItemFromCard,

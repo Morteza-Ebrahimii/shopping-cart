@@ -177,4 +177,22 @@ variant='btn btn-outline-secondary' className='white'
     .make cardProduct from useState with inicial value [],
     .set value of items inside ContextValue to cardProduct, 
 
-13.
+✅13.inside CardContext.jsx
+    .inside CardProvider develpe the getProductQuantity,
+    .make func getProductQuantity wiht property 'id',
+    .inside functoin(
+        use find method on cardProduct and tell reutrn item(from call back function).id === id , then we want quantity of each product, and assign it to a constans name quantity,
+    )
+    .after quantity (inside getproductQuantity) write if quantity === undefined return 0 otherwise return quantity,
+
+✅14. make addItemToCard with property 'id',
+    .call the getProductQuantity with property 'id' and assign it to a varibale name quantity,
+    .if quantity === 0 you should update setCartProduct,
+    for update setCartProduct(
+        .inside [use sparate on cartProduct, {id : id, quantity : 1}]
+    )
+    else {
+        .use map on cartProduct with property item,
+        .tell us if item.id === id ? {sperate item, quantity : quantity + 1 : item}
+    }
+    
