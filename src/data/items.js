@@ -1,29 +1,57 @@
-import images from '/images/photo.jpg'
+import airpads from '/images/airpods.jpg'
+import hadphone from '/images/hadphone.jpg'
+import iphone16 from '/images/iphone16.jpg'
+import keyMouse from '/images/key&mouse.jpg'
+import mackBook from '/images/mackBook.jpg'
 
 const productList = [
     {
         id: 1,
-        title: 'product',
-        price: 99,
-        image: images,
+        title: 'Airpads',
+        price: 89,
+        image: airpads,
     },
     {
         id: 2,
-        title: 'product',
-        price: 99,
-        image: images,
+        title: 'iphone 16 max',
+        price: 399,
+        image: iphone16,
     },
     {
         id: 3,
-        title: 'product',
-        price: 99,
-        image: images,
+        title: 'hadphone',
+        price: 199,
+        image: hadphone,
     },
     {
         id: 4,
-        title: 'product',
-        price: 99,
-        image: images,
+        title: 'key and mouse',
+        price: 499,
+        image: keyMouse,
+    },
+    {
+        id: 5,
+        title: 'airpads',
+        price: 89,
+        image: airpads,
+    },
+    {
+        id: 6,
+        title: 'hadphone',
+        price: 159,
+        image: hadphone,
+    },
+    {
+        id: 7,
+        title: 'iphone 16 plus',
+        price: 499,
+        image: iphone16,
+    },
+    {
+        id: 8,
+        title: 'mackbook',
+        price: 699,
+        image: mackBook,
     },
 ]
 

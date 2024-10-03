@@ -206,7 +206,7 @@ variant='btn btn-outline-secondary' className='white'
     .after that product.price * itme.quantity,
     make variable totalAmount and assign it to this,
 
-17. continue inside app.jsx,
+✅17. continue inside app.jsx,
     .import amount of CartProvider from CartContext,
     .nested all item inside CartProvider,
     .inside ProductItem.jsx import useContext from 'react',
@@ -214,3 +214,38 @@ variant='btn btn-outline-secondary' className='white'
     .inside ProductItem fucntion use useContext and give it for arguman CartContext,
     .assign variable to 'cart' constans,
     .make onClick evenet to button at the end of page, give it cart.addItemToCart for call back fucn,give it for arguman product.id,
+
+18. inside ProductItem fucn :
+    .from cart get the getProductQuantity and give for argument(product.id) and then assign it to a variable,
+    .expect your button following these code(
+        { productQuantity > 0 ?
+         (<><div className='text-white'>test
+         </div></>) :
+         (<><Button onClick={() => cart.addItemToCard(Product.id)} variant='btn btn-outline-secondary'
+                className='white m-3'>
+                Add to Shopping Cart
+            </Button></>
+         }
+    )
+    .import Form, Row and col from 'react-bootstrap',
+    .expect  your test div following these code(
+    <Form as={Row}>
+    <From.Label column={true} sm='6' className='text-white'     >
+    Amount: {productQuantity}
+    </From.Label>
+    <Button 
+    sm='6' 
+    className='mx-2 text-white'
+    variant='btn btn-outline-secondary'>+</Button>
+    <Button sm='6' 
+    className='mx-2 text-white'
+    variant='btn btn-outline-secondary'>-</Button>
+    </Form>
+    )
+    .nested two button inside 
+    <Col sm='6'></Col>
+    .make ananimous onClick for button + (
+        onClick={() => cart.addItemToCart(product.id)}
+    )
+    .do it same for button -, but use the removeItemFromCart expect addItemToCart,
+    

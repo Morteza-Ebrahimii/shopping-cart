@@ -2,7 +2,7 @@ import { useState } from 'react';
 import { createContext } from 'react'
 import { getProductData } from '../data/items'
 
-export const CardContext = createContext({
+export const CartContext = createContext({
     items: [],
     getProductQuantity: () => { },
     addItemToCard: () => { },
@@ -11,7 +11,7 @@ export const CardContext = createContext({
     getTotalAmount: () => { },
 });
 
-export function CardProvider({ children }) {
+export function CartProvider({ children }) {
 
     const [CartProduct, setCartProduct] = useState([])
 
@@ -72,8 +72,8 @@ export function CardProvider({ children }) {
     }
 
     return (
-        <CardContext.Provider value={ContextValue}>
+        <CartContext.Provider value={ContextValue}>
             {children}
-        </CardContext.Provider>
+        </CartContext.Provider>
     )
 }
