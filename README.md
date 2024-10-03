@@ -198,7 +198,7 @@ variant='btn btn-outline-secondary' className='white'
     
 ✅15. handle deleteFromCart ,
 ✅16. handle removeItemFromCart ,
-16. handle getTotalAmount ,
+✅16. handle getTotalAmount ,
     .make variable totalAmount = 0,
     .use map inside cartPruduct,
     .in CartContext.jsx import amount getProductData,
