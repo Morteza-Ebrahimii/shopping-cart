@@ -1,4 +1,4 @@
-import { Card, Button } from 'react-bootstrap'
+import { Card, Button, Form, Row, Col } from 'react-bootstrap'
 import { productList } from '../data/items';
 import { useContext } from 'react';
 import { CartContext } from '../context/CartContext'
@@ -6,6 +6,7 @@ import { CartContext } from '../context/CartContext'
 function ProductItem({ Product }) {
 
     const cart = useContext(CartContext)
+    const productQuantity = cart.getProductQuantity(Product.id)
 
     console.log();
     return (
@@ -22,11 +23,33 @@ function ProductItem({ Product }) {
                 <Card.Text align='right' className='text-light'>
                     {Product.price} $
                 </Card.Text>
+                {productQuantity > 0 ?
+                    (
+                        <Form as={Row}>
+                            <Form.Label column={true} sm='6' className='text-white'     >
+                                Amount: {productQuantity}
+                            </Form.Label>
+                            <Col sm='6'>
+                                <Button
+                                 onClick={() => cart.addItemToCart(Product.id)}
+                                    sm='6'
+                                    className='mx-2 text-white'
+                                    variant='btn btn-outline-secondary'>+</Button>
+                                <Button sm='6'
+                                 onClick={() => cart.removeItemFromCart(Product.id)}
+                                    className='mx-2 text-white'
+                                    variant='btn btn-outline-secondary'>-</Button>
+                            </Col>
+
+                        </Form>
+                    ) :
+                    (
+                        <Button onClick={() => cart.addItemToCart(Product.id)} variant='btn btn-outline-secondary'
+                            className='white m-3'>
+                            Add to Shopping Cart
+                        </Button>
+                    )}
             </Card.Body>
-            <Button onClick={() => cart.addItemToCard(Product.id)} variant='btn btn-outline-secondary'
-                className='white m-3'>
-                Add to Shopping Cart
-            </Button>
         </Card>
     )
 }

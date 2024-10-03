@@ -5,8 +5,8 @@ import { getProductData } from '../data/items'
 export const CartContext = createContext({
     items: [],
     getProductQuantity: () => { },
-    addItemToCard: () => { },
-    removeItemFromCard: () => { },
+    addItemToCart: () => { },
+    removeItemFromCart: () => { },
     deleteFromCard: () => { },
     getTotalAmount: () => { },
 });
@@ -16,7 +16,7 @@ export function CartProvider({ children }) {
     const [CartProduct, setCartProduct] = useState([])
 
     function getProductQuantity(id) {
-        const quantity = CartProduct.find((item) => (item.id === id)?.quantity)
+        const quantity = CartProduct.find((item) => item.id === id)?.quantity
 
         if (quantity === undefined) {
             return 0
@@ -25,15 +25,18 @@ export function CartProvider({ children }) {
         return quantity
     }
 
-    function addItemToCard(id) {
+    function addItemToCart(id) {
         const quantity = getProductQuantity(id)
 
         if (quantity === 0) {
             setCartProduct([...CartProduct, { id: id, quantity: 1 }])
         } else {
-            CartProduct.map((item) => (
-                item.id === id ? { ...item, quantity: quantity + 1 } : item
-            ))
+            setCartProduct(
+                CartProduct.map((item) => 
+                    item.id === id ? { ...item, quantity: item.quantity + 1 } : item
+                )
+            )
+
         }
     }
 
@@ -42,7 +45,9 @@ export function CartProvider({ children }) {
             return CartProduct.filter((item) => item.id !== id)
         })
     }
-    function removeItemFromCard(id) {
+    function removeItemFromCart(id) {
+        const quantity = getProductQuantity(id)
+
         if (quantity === 1) {
             deleteFromCard(id)
         } else {
@@ -56,7 +61,7 @@ export function CartProvider({ children }) {
         CartProduct.map((item) => {
             const productData = getProductData(item.id)
 
-             totalAmount += productData.price * item.quantity
+            totalAmount += productData.price * item.quantity
 
         })
     }
@@ -65,8 +70,8 @@ export function CartProvider({ children }) {
     const ContextValue = {
         items: CartProduct,
         getProductQuantity,
-        addItemToCard,
-        removeItemFromCard,
+        addItemToCart,
+        removeItemFromCart,
         deleteFromCard,
         getTotalAmount,
     }
