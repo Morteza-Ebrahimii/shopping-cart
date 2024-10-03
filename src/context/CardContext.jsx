@@ -36,6 +36,21 @@ export function CardProvider({ children }) {
         }
     }
 
+    function deleteFromCard(id) {
+        setCartProduct((CartProduct) => {
+            return CartProduct.filter((item) => item.id !== id)
+        })
+    }
+    function removeItemFromCard(id) {
+        if (quantity === 1) {
+            deleteFromCard(id)
+        } else {
+            setCartProduct(
+                CartProduct.map((item) => item.id === id ? { ...item, quantity: item.quantity - 1 } : item))
+        }
+    }
+
+
     const ContextValue = {
         items: CartProduct,
         getProductQuantity,

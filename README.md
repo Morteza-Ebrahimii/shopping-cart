@@ -196,3 +196,21 @@ variant='btn btn-outline-secondary' className='white'
         .tell us if item.id === id ? {sperate item, quantity : quantity + 1 : item}
     }
     
+✅15. handle deleteFromCart ,
+✅16. handle removeItemFromCart ,
+16. handle getTotalAmount ,
+    .make variable totalAmount = 0,
+    .use map inside cartPruduct,
+    .in CartContext.jsx import amount getProductData,
+    .make constans productData to getProductData(item.id),
+    .after that product.price * itme.quantity,
+    make variable totalAmount and assign it to this,
+
+17. continue inside app.jsx,
+    .import amount of CartProvider from CartContext,
+    .nested all item inside CartProvider,
+    .inside ProductItem.jsx import useContext from 'react',
+    .import CartContext from CartContext,
+    .inside ProductItem fucntion use useContext and give it for arguman CartContext,
+    .assign variable to 'cart' constans,
+    .make onClick evenet to button at the end of page, give it cart.addItemToCart for call back fucn,give it for arguman product.id,
