@@ -24,24 +24,29 @@ function ProductItem({ Product }) {
                     {Product.price} $
                 </Card.Text>
                 {productQuantity > 0 ?
-                    (
+                    (<>
                         <Form as={Row}>
                             <Form.Label column={true} sm='6' className='text-white'     >
                                 Amount: {productQuantity}
                             </Form.Label>
                             <Col sm='6'>
                                 <Button
-                                 onClick={() => cart.addItemToCart(Product.id)}
+                                    onClick={() => cart.addItemToCart(Product.id)}
                                     sm='6'
                                     className='mx-2 text-white'
                                     variant='btn btn-outline-secondary'>+</Button>
                                 <Button sm='6'
-                                 onClick={() => cart.removeItemFromCart(Product.id)}
+                                    onClick={() => cart.removeItemFromCart(Product.id)}
                                     className='mx-2 text-white'
                                     variant='btn btn-outline-secondary'>-</Button>
+
                             </Col>
 
                         </Form>
+                        <Button onClick={() => cart.deleteFromCard(Product.id)}
+                            className='my-4'
+                            variant='btn btn-danger'>Delete from cart</Button>
+                    </>
                     ) :
                     (
                         <Button onClick={() => cart.addItemToCart(Product.id)} variant='btn btn-outline-secondary'

@@ -215,7 +215,7 @@ variant='btn btn-outline-secondary' className='white'
     .assign variable to 'cart' constans,
     .make onClick evenet to button at the end of page, give it cart.addItemToCart for call back fucn,give it for arguman product.id,
 
-18. inside ProductItem fucn :
+✅18. inside ProductItem fucn :
     .from cart get the getProductQuantity and give for argument(product.id) and then assign it to a variable,
     .expect your button following these code(
         { productQuantity > 0 ?
@@ -249,3 +249,43 @@ variant='btn btn-outline-secondary' className='white'
     )
     .do it same for button -, but use the removeItemFromCart expect addItemToCart,
     
+✅19. handle button to delete from cart,
+
+✅20. add amount of each product in navbar,
+    .in Navbar.jsx use your Context data,
+    .after assign your data to cart, use the reduce method on cart.item, get the sum of each quantity of product and assign it to a variable name 'productCount',
+    .behind the button of shopping cart add the (productCount),
+    
+21. handle the modal,
+    .make CartProduct in Component,
+    .inside func make three p tag for title, count and price,
+    .after that make Button'Remove' form bootstrap,
+    .import amount of getProductData form CartContext,
+    .assign getProductData to productData with id for argument, extract {id} from CartProduct func,
+    .expect title => ProductData.title
+    .expect amount => Quantity
+    .expect price => Quantity * ProductData.price
+    .import useContext and stuff,
+    .handel event on Button to delete from cart,
+    .write Amount for Quantity
+    .write Price for Quantity * Price
+    .write delete for Button,
+    .for your button: 
+        .size: sm
+        .className: mb-5 text-white
+        .variant: btn btn-outline-secondary,
+
+22. use the CartProduct in Modal in navbar,
+    .import CartProduct in navbar.jsx,
+    .in Modal.Body expect 'Product' following these:
+        .{if ProductCount > 0 do this ?}
+        {
+            cart.item.map((item) => (
+                <CartProduct key={itme.id} id={item.id} Quantity={item.Quantity}></CartProduct>
+            ))
+        }
+        .otherwise do thise{
+            <h3 className='text-danger'>shopping cart is empty</h3>
+        }
+        .delete exit button and the text shopping cart from modal and add a button at the end of page,
+
