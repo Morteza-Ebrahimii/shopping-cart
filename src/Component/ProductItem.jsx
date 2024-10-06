@@ -1,3 +1,8 @@
+// ProductItem component: 
+// Represents a single product item in the catalog, 
+// displaying its details such as name, price, and description. 
+// May include an "Add to Cart" button to add the product to the shopping cart.
+
 import { Card, Button, Form, Row, Col } from 'react-bootstrap'
 import { productList } from '../data/items';
 import { useContext } from 'react';

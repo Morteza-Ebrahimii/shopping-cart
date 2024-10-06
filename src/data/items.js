@@ -1,3 +1,6 @@
+// This file contains a function to retrieve product data by ID.
+// It's used by the CartProduct component to fetch product information.
+
 import airpads from '/images/airpods.jpg'
 import hadphone from '/images/hadphone.jpg'
 import iphone16 from '/images/iphone16.jpg'

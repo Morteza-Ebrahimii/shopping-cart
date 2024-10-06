@@ -1,3 +1,9 @@
+// Navbar component: 
+// Renders the navigation bar at the top of the page, 
+// including a shopping cart button that displays the total product count. 
+// When clicked, it opens a modal showing the cart contents. 
+// Also provides a "Place Order" button to complete the purchase.
+
 import { Navbar as NavbarBs, Button, Modal } from 'react-bootstrap'
 import { BsCart } from 'react-icons/bs'
 import React, { useState, useContext } from 'react';
@@ -18,7 +24,10 @@ function Navbar() {
     }
     const handleClose = () => {
         setShowModal(false)
-
+    }
+    const checkout = () => {
+        window.location.reload()
+        alert("Thank you, your order has been placed.");
     }
 
     return (
@@ -45,13 +54,15 @@ function Navbar() {
                                     {cart.items.map((item) => (
                                         <CartProduct key={item.id} id={item.id} Quantity={item.quantity}></CartProduct>
                                     ))}
+                                    <h3>Total Price: {cart.getTotalAmount()}$</h3>
                                 </>
                             ) : (
                                 <h3 className='text-danger'>shopping cart is empty!</h3>
-
-                            )
-                        }
-                        <Button variant='btn btn-outline-secondary' className='mt-5 mx 3 text-white' onClick={handleClose}>Close</Button>
+                            )}
+                        {cart.items.length > 0  ? (
+                            <Button className='mt-5 mx-2' variant='btn btn-success' onClick={checkout}>Place Order</Button>
+                        ) : null}
+                        <Button variant='btn btn-danger' className='mt-5 mx 3 text-white' onClick={handleClose}>Close</Button>
                     </Modal.Body>
                 </Modal.Header>
             </Modal>

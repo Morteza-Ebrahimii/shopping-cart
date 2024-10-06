@@ -256,7 +256,7 @@ variant='btn btn-outline-secondary' className='white'
     .after assign your data to cart, use the reduce method on cart.item, get the sum of each quantity of product and assign it to a variable name 'productCount',
     .behind the button of shopping cart add the (productCount),
     
-21. handle the modal,
+✅21. handle the modal,
     .make CartProduct in Component,
     .inside func make three p tag for title, count and price,
     .after that make Button'Remove' form bootstrap,
@@ -275,7 +275,7 @@ variant='btn btn-outline-secondary' className='white'
         .className: mb-5 text-white
         .variant: btn btn-outline-secondary,
 
-22. use the CartProduct in Modal in navbar,
+✅22. use the CartProduct in Modal in navbar,
     .import CartProduct in navbar.jsx,
     .in Modal.Body expect 'Product' following these:
         .{if ProductCount > 0 do this ?}

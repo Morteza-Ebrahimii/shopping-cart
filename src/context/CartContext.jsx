@@ -1,3 +1,6 @@
+// This file defines the CartContext, which provides a way to share 
+// cart data and functionality between components.
+
 import { useState } from 'react';
 import { createContext } from 'react'
 import { getProductData } from '../data/items'
@@ -57,13 +60,13 @@ export function CartProvider({ children }) {
     }
 
     function getTotalAmount() {
-        const totalAmount = 0;
+        let totalAmount = 0;
         CartProduct.map((item) => {
             const productData = getProductData(item.id)
 
             totalAmount += productData.price * item.quantity
-
         })
+        return totalAmount
     }
 
 
