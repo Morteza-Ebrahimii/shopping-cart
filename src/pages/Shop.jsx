@@ -14,7 +14,7 @@ function Shop() {
         <>
             <div className="hr" />
 
-            <Row xs={1} md={2} lg={4} className='g-4'>
+            <Row xs={1} lg={4} md={2}  className='g-4'>
                 {productList.map((item) => (
                     <Col align='center' key={item.id}>
                     <ProductItem Product={item} />

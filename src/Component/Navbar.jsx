@@ -44,7 +44,7 @@ function Navbar() {
                 </NavbarBs.Collapse>
             </NavbarBs>
             <Modal show={showModal} onHide={handleClose}
-                contentClassName='card-bg' dir='rtl'>
+                contentClassName='card-bg'>
                 <Modal.Header >
                     <Modal.Body>
                         {
